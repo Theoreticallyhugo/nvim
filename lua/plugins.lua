@@ -1,5 +1,15 @@
 return {
     {
+        "neovim/nvim-lspconfig",
+        lazy = false,
+        config = function()
+            require "configs.lspconfig"
+        end,
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+        },
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         opts = require "configs.treesitter"
     },
@@ -18,4 +28,12 @@ return {
         "kdheepak/lazygit.nvim",
         cmd = { "LazyGit" },
     },
+    {
+        "catppuccin/nvim", 
+        name = "catppuccin", 
+        priority = 1000,
+        opts = function()
+            require "configs.catppuccin"
+        end,
+    }
 }
