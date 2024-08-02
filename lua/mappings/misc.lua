@@ -37,7 +37,7 @@ map("n", "<leader>pv", vim.cmd.Ex , desc "Netrw: open netrw")
 
 -- updating
 map("n", "<leader>ua", ":Lazy sync <CR>", desc "UPDATE: update all plugins" )
-map("n", "<leader>um", ":MasonInstallAll <CR>", desc "UPDATE: update all mason plugins" )
+-- map("n", "<leader>um", ":MasonUpdate <CR>", desc "UPDATE: update all mason plugins" )
 
 -- formatting    
 -- overrides NvChad default
