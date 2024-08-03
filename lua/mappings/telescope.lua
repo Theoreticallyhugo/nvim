@@ -58,8 +58,8 @@ map("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "TELESCOPE: find mar
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "TELESCOPE: find oldfiles" })
 map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "TELESCOPE: git commits" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "TELESCOPE: git status" })
-map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "TELESCOPE: pick hidden term" })
-map("n", "<leader>th", "<cmd>Telescope themes<CR>", { desc = "TELESCOPE: nvchad themes" })
+-- map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "TELESCOPE: pick hidden term" })
+-- map("n", "<leader>th", "<cmd>Telescope themes<CR>", { desc = "TELESCOPE: nvchad themes" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "TELESCOPE: find files" })
 map(
   "n",

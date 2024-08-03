@@ -35,6 +35,23 @@ return {
         end,
         dependencies = 'nvim-tree/nvim-web-devicons'
     },
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        cmd = "Telescope",
+        opts = function()
+            return require "configs.telescope"
+        end,
+        config = function(_, opts)
+            local telescope = require "telescope"
+            telescope.setup(opts)
+
+            -- load extensions
+            for _, ext in ipairs(opts.extensions_list) do
+               telescope.load_extension(ext)
+            end
+        end,
+    },
     --- XXX: git
     {
         "kdheepak/lazygit.nvim",
@@ -74,4 +91,14 @@ return {
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
 	},
+    -- help
+    --
+    {
+        "folke/which-key.nvim",
+        keys = { "<leader>", "<c-r>", "<c-w>", '"', "'", "`", "c", "v", "g" },
+        cmd = "WhichKey",
+        config = function()
+              require("which-key").setup()
+        end,
+    },
 }
