@@ -23,6 +23,22 @@ return {
             require "configs.mason_installer"
         end,
     },
+    -- TODO: check whether it works
+    {
+        "stevearc/conform.nvim",
+        -- event = 'BufWritePre', -- uncomment for format on save
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require "configs.conform"
+        end,
+    },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = require "configs.todo-comments",
+        -- https://github.com/folke/todo-comments.nvim
+        lazy = false,
+    },
     --- XXX: navigation
     {
         "nvim-tree/nvim-tree.lua",

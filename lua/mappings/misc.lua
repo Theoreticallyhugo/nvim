@@ -41,14 +41,14 @@ map("n", "<leader>ua", ":Lazy sync <CR>", desc "UPDATE: update all plugins" )
 
 -- formatting    
 -- overrides NvChad default
--- map({ "n", "v" }, "<leader>fm", function()
---       require("conform").format({
---         lsp_fallback = true,
---         async = false,
---         timeout_ms = 2000,
---       })
---     end,  desc "FORMAT: Format file or range (in visual mode)"
--- )
+map({ "n", "v" }, "<leader>fm", function()
+      require("conform").format({
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 2000,
+      })
+    end,  desc "FORMAT: Format file or range (in visual mode)"
+)
 
 --- LazyGit
 map("n", "<leader>gg", "<cmd> LazyGit <CR>", desc "LAZYGIT: Open LazyGit")
@@ -57,13 +57,13 @@ map("n", "<leader>gg", "<cmd> LazyGit <CR>", desc "LAZYGIT: Open LazyGit")
 -- use g? to show all default mappings, custom ones excluded
 -- refer to https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt
 -- point 2.2 QUICKSTART: HELP at line 149 for the commands
--- map(
---   "n",
---   "_",
---   function ()
---     require("nvim-tree.api").tree.change_root_to_node() -- replacing <C-]>
---   end,
---   desc "Nvim-tree: CD change directory"
--- )
+map(
+  "n",
+  "_",
+  function ()
+    require("nvim-tree.api").tree.change_root_to_node() -- replacing <C-]>
+  end,
+  desc "Nvim-tree: CD change directory"
+)
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Nvim-tree: toggle window" })
 map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "Nvim-tree: focus window" })

@@ -56,6 +56,6 @@ end
 -- How to add LSP for a specific language?
 -- 1. use `:Mason` to install corresponding LSP
 -- 2. add configuration below
-lspconfig.pylsp.setup({
-	on_attach = on_attach,
-})
+-- lspconfig.pylsp.setup({
+-- 	on_attach = on_attach,
+-- })
