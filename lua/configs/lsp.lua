@@ -62,6 +62,7 @@ local servers = {
   "texlab",
   "dockerls",
   "jsonls",
+  "yamlls",
 }
 
 -- lsps with default config
@@ -83,8 +84,11 @@ lspconfig.bashls.setup {
   filetypes = { "sh", "bash", "zsh" },
 }
 
--- 1. use `:Mason` to install corresponding LSP
--- 2. add configuration below
--- lspconfig.pylsp.setup({
--- 	on_attach = on_attach,
--- })
+-- FIXME:
+-- -- grammarly
+-- lspconfig.grammarly.setup {
+--   on_attach = on_attach,
+--   -- on_init = on_init,
+--   -- capabilities = capabilities,
+--   filetypes = { "tex", "plaintex", "txt", "markdown" },
+-- }

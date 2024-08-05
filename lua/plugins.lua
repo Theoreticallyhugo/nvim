@@ -5,7 +5,7 @@ return {
         "neovim/nvim-lspconfig",
         lazy = false,
         config = function()
-            require "configs.lspconfig"
+            require "configs.lsp"
         end,
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
