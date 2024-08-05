@@ -1,5 +1,6 @@
 return {
     --- XXX: lsp
+    -- FIXME: documentation opening in new buffer. is that bad?
     {
         "neovim/nvim-lspconfig",
         lazy = false,
@@ -112,6 +113,7 @@ return {
         "folke/which-key.nvim",
         keys = { "<leader>", "<c-r>", "<c-w>", '"', "'", "`", "c", "v", "g" },
         cmd = "WhichKey",
+        lazy = false,
         config = function()
               require("which-key").setup()
         end,

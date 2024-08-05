@@ -53,7 +53,36 @@ local on_attach = function(client, bufnr)
 end
 
 -- Configure each language
+
+local servers = {
+  "pyright",
+  "lua_ls",
+  "html",
+  "clangd",
+  "texlab",
+  "dockerls",
+  "jsonls",
+}
+
+-- lsps with default config
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    -- on_init = on_init,
+    -- capabilities = capabilities,
+  }
+end
+
 -- How to add LSP for a specific language?
+
+-- bash-language-server
+lspconfig.bashls.setup {
+  on_attach = on_attach,
+  -- on_init = on_init,
+  -- capabilities = capabilities,
+  filetypes = { "sh", "bash", "zsh" },
+}
+
 -- 1. use `:Mason` to install corresponding LSP
 -- 2. add configuration below
 -- lspconfig.pylsp.setup({
