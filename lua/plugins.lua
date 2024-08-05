@@ -23,7 +23,6 @@ return {
             require "configs.mason_installer"
         end,
     },
-    -- TODO: check whether it works
     {
         "stevearc/conform.nvim",
         -- event = 'BufWritePre', -- uncomment for format on save
@@ -121,6 +120,13 @@ return {
         'norcalli/nvim-colorizer.lua',
         config = function()
             require('colorizer').setup()
+        end,
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            require("configs.lualine")
         end,
     },
 }
