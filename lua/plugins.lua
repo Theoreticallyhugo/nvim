@@ -15,9 +15,9 @@ return {
         "nvim-treesitter/nvim-treesitter",
         opts = require "configs.treesitter"
     },
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         opts = function()
@@ -74,39 +74,51 @@ return {
         cmd = { "LazyGit" },
     },
     {
-        "catppuccin/nvim", 
-        name = "catppuccin", 
-        priority = 1000,
+        "lewis6991/gitsigns.nvim",
         opts = function()
-            require "configs.catppuccin"
+            return require "configs.gitsigns"
         end,
     },
-
     -- XXX: autocompletion
-	{
-	    -- Vscode-like pictograms
-		"onsails/lspkind.nvim",
-		event = { "VimEnter" },
-	},
-	{
-	    -- Auto-completion engine
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"lspkind.nvim",
-			"hrsh7th/cmp-nvim-lsp", -- lsp auto-completion
-			"hrsh7th/cmp-buffer", -- buffer auto-completion
-			"hrsh7th/cmp-path", -- path auto-completion
-			"hrsh7th/cmp-cmdline", -- cmdline auto-completion
-		},
-		config = function()
-			require("configs.cmp")
-		end,
-	},
-	{
-	    -- Code snippet engine
-		"L3MON4D3/LuaSnip",
-		version = "v2.*",
-	},
+    {
+        -- Vscode-like pictograms
+        "onsails/lspkind.nvim",
+        event = { "VimEnter" },
+    },
+    {
+        -- Auto-completion engine
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "lspkind.nvim",
+            "hrsh7th/cmp-nvim-lsp", -- lsp auto-completion
+            "hrsh7th/cmp-buffer", -- buffer auto-completion
+            "hrsh7th/cmp-path", -- path auto-completion
+            "hrsh7th/cmp-cmdline", -- cmdline auto-completion
+        },
+        config = function()
+            require("configs.cmp")
+        end,
+    },
+    {
+        -- Code snippet engine
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+    },
+    -- autopairing of (){}[] etc
+    {
+          "windwp/nvim-autopairs",
+          opts = {
+              fast_wrap = {},
+              disable_filetype = { "TelescopePrompt", "vim" },
+          },
+          config = function(_, opts)
+              require("nvim-autopairs").setup(opts)
+
+              -- setup cmp for autopairs
+              local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+              require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+          end,
+      },
     -- help
     --
     {
@@ -119,6 +131,14 @@ return {
         end,
     },
     -- XXX: eyecandy
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        opts = function()
+            require "configs.catppuccin"
+        end,
+    },
     {
         'norcalli/nvim-colorizer.lua',
         config = function()
@@ -144,4 +164,5 @@ return {
         end,
         lazy = false,
     },
+
 }
