@@ -118,6 +118,7 @@ return {
               require("which-key").setup()
         end,
     },
+    -- XXX: eyecandy
     {
         'norcalli/nvim-colorizer.lua',
         config = function()
@@ -130,5 +131,17 @@ return {
         config = function()
             require("configs.lualine")
         end,
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        -- event = "User FilePost",
+        opts = {
+            indent = { char = "│", highlight = "IblChar" },
+            scope = { char = "│", highlight = "IblScopeChar" },
+        },
+        config = function()
+            require("configs.indent-blankline")
+        end,
+        lazy = false,
     },
 }
