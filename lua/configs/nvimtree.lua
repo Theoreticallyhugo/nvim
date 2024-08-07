@@ -1,7 +1,6 @@
 local tree = {
   filters = {
-    -- TODO: get the dotfiles to be shown
-    dotfiles = true,
+    dotfiles = false,  -- meaning do not filter dotfiles
   },
   view = {
     adaptive_size = false,
