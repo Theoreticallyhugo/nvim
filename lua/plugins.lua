@@ -172,5 +172,36 @@ return {
         end,
         lazy = false,
     },
-
+    -- XXX: debugger
+    {
+          "jay-babu/mason-nvim-dap.nvim",
+          event = "VeryLazy",
+          dependencies = {
+              "mfussenegger/nvim-dap",
+          },
+          opts = {
+              handlers = {},
+          },
+    },
+    {
+          "rcarriga/nvim-dap-ui",
+          event = "VeryLazy",
+          dependencies = {
+              "mfussenegger/nvim-dap",
+              "nvim-neotest/nvim-nio",
+          },
+          config = require("configs.nvim-dap-ui").config,
+    },
+    {
+          "mfussenegger/nvim-dap-python",
+          ft = "python",
+          dependencies = {
+              "mfussenegger/nvim-dap",
+              "rcarriga/nvim-dap-ui"
+          },
+          config = function()
+              local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+              require("dap-python").setup(path)
+          end,
+    },
 }
