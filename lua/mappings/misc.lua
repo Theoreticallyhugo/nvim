@@ -35,6 +35,12 @@ map("n", "<C-l>", "<C-w>l", desc "")
 
 map("n", "<leader>pv", vim.cmd.Ex , desc "Netrw: open netrw")
 
+vim.keymap.set("c", "<C-A>","<Home>")
+vim.keymap.set("c", "<C-F>","<Right>")
+vim.keymap.set("c", "<C-B>","<Left>")
+vim.keymap.set("c", "<Esc>b","<S-Left>")
+vim.keymap.set("c", "<Esc>f","<S-Right>")
+
 -- updating
 map("n", "<leader>ua", ":Lazy sync <CR>", desc "UPDATE: update all plugins" )
 map("n", "<leader>um", "<CMD>MasonToolsUpdate <CR> <CMD>Mason <CR>", desc "UPDATE: update all mason plugins" )
