@@ -79,6 +79,14 @@ return {
             return require "configs.gitsigns"
         end,
     },
+    {
+       "akinsho/git-conflict.nvim",
+       version = "v1.3.0",
+       config = function()
+         require "configs.git-conflict"
+       end,
+       lazy = false,
+    },
     -- XXX: autocompletion
     {
         -- Vscode-like pictograms
