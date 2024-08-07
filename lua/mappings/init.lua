@@ -1,5 +1,5 @@
 require "mappings.misc"
 require "mappings.bufferline"
 require "mappings.telescope"
--- require "mappings.dap"
+require "mappings.dap"
 require "mappings.todo-comments"
