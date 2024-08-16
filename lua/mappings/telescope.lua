@@ -8,6 +8,7 @@ end
 local map = vim.keymap.set
 
 --- telescope
+map("n", "<leader>f", "") -- remap from fz to fj
 map(
   "n",
   "<leader>fs",
