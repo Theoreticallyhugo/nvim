@@ -24,3 +24,14 @@ vim.opt.hlsearch = true             -- not highlight matches
 vim.opt.ignorecase = true           -- ignore case in searches by default
 vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
 
+-- undo
+-- Create the undo directory if it doesn't exist
+local undodir = vim.fn.expand("~/.config/nvim/undodir")
+if not vim.loop.fs_stat(undodir) then
+  vim.fn.mkdir(undodir, "p")
+end
+
+-- Set the undo options
+vim.opt.undofile = true
+vim.opt.undodir = undodir
+vim.opt.undolevels = 1000
