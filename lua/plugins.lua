@@ -211,4 +211,10 @@ return {
               require("dap-python").setup(path)
           end,
     },
+    -- XXX: UNDO
+    {
+        "jiaoshijie/undotree",
+        dependencies = "nvim-lua/plenary.nvim",
+        config = true,
+    },
 }

@@ -60,6 +60,10 @@ map({ "n", "v" }, "<leader>fm", function()
 --- LazyGit
 map("n", "<leader>gg", "<cmd> LazyGit <CR>", desc "LAZYGIT: Open LazyGit")
 
+-- undotree
+-- the plugin isnt loaded until invoced by the mapping
+map("n", "<leader>ut", "<cmd>lua require('undotree').toggle()<cr>", desc "UNDOTREE: load and then open undotree" )
+
 --- nvim tree
 -- use g? to show all default mappings, custom ones excluded
 -- refer to https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt
