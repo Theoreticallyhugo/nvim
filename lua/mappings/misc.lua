@@ -27,6 +27,7 @@ map({ "n", "i", "v" }, "<C-s>", "<cmd> w <CR>", desc "SAVE: save file")
 
 
 -- navigation
+vim.opt.whichwrap:append("h,l")
 map({"n", "v"}, "j", "gj", desc "NAVIGATION: go down one visual line")
 map({"n", "v"}, "k", "gk", desc "NAVIGATION: go up one visual line")
 
