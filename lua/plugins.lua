@@ -163,6 +163,7 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         -- event = "User FilePost",
+        main = "ibl",
         opts = {
             indent = { char = "│", highlight = "IblChar" },
             scope = { char = "│", highlight = "IblScopeChar" },
@@ -171,6 +172,12 @@ return {
             require("configs.indent-blankline")
         end,
         lazy = false,
+    },
+    {
+    "nvimdev/dashboard-nvim",
+    lazy = false, -- As https://github.com/nvimdev/dashboard-nvim/pull/450, dashboard-nvim shouldn't be lazy-loaded to properly handle stdin.
+    opts = function()
+    end,
     },
     -- XXX: debugger
     {
