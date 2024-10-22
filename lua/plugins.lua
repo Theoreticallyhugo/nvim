@@ -2,35 +2,8 @@ return {
     --- XXX: lsp
     -- FIXME: documentation opening in new buffer. is that bad?
     {
-        "neovim/nvim-lspconfig",
-        lazy = false,
-        config = function()
-            require "configs.lsp"
-        end,
-        dependencies = {
-            "williamboman/mason-lspconfig.nvim",
-        },
-    },
-    {
         "nvim-treesitter/nvim-treesitter",
         opts = require "configs.treesitter"
-    },
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-    {
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
-        opts = function()
-            require "configs.mason_installer"
-        end,
-    },
-    {
-        "stevearc/conform.nvim",
-        -- event = 'BufWritePre', -- uncomment for format on save
-        event = { "BufReadPre", "BufNewFile" },
-        config = function()
-            require "configs.conform"
-        end,
     },
     {
         "folke/todo-comments.nvim",
