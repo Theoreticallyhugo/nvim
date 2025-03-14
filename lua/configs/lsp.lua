@@ -20,7 +20,7 @@ local lspconfig = require('lspconfig')
 -- Customized on_attach function
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<space>j', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
@@ -63,6 +63,7 @@ local servers = {
   "dockerls",
   "jsonls",
   "yamlls",
+  "ltex",
 }
 
 -- lsps with default config
@@ -85,10 +86,17 @@ lspconfig.bashls.setup {
 }
 
 -- FIXME:
--- -- grammarly
--- lspconfig.grammarly.setup {
---   on_attach = on_attach,
---   -- on_init = on_init,
---   -- capabilities = capabilities,
---   filetypes = { "tex", "plaintex", "txt", "markdown" },
--- }
+-- grammarly but foss is ltex
+lspconfig.ltex.setup {
+  on_attach = on_attach,
+  -- on_init = on_init,
+  -- capabilities = capabilities,
+  -- filetypes = { "tex", "plaintex", "txt", "markdown" },
+  settings = {
+    ltex = {
+  	  language = "auto",
+  	  -- language = "en-GB",
+  	  -- language = "de-DE",
+  	},
+  },
+}
