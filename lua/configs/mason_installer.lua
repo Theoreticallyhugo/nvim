@@ -36,7 +36,7 @@ require('mason-tool-installer').setup {
 
     -- latex
     "texlab",
-    "grammarly-languageserver",
+    "ltex-ls",
 
     -- docker
     "dockerfile-language-server",
