@@ -39,6 +39,11 @@ return {
         -- https://github.com/folke/todo-comments.nvim
         lazy = false,
     },
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^5', -- Recommended
+        lazy = false, -- This plugin is already lazy
+    },
     --- XXX: navigation
     {
         "nvim-tree/nvim-tree.lua",
