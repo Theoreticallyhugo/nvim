@@ -1,6 +1,6 @@
 -- HELPERS
 
----Wrapps the given string in a table 
+---Wrapps the given string in a table
 local function desc(s)
   return { desc = s }
 end
@@ -9,48 +9,23 @@ local map = vim.keymap.set
 
 --- telescope
 map("n", "<leader>f", "") -- remap from fz to fj
-map(
-  "n",
-  "<leader>fs",
-  function()
-    require("telescope.builtin").lsp_document_symbols()
-  end,
-  desc "TELESCOPE: Find document symbols"
-)
-map(
-  "n",
-  "<leader>fS",
-  function()
-    require("telescope.builtin").lsp_workspace_symbols()
-  end,
-  desc "TELESCOPE: Find workspace symbols"
-)
-map(
-  "n",
-  "<leader>fi",
-  function()
-    require("telescope.builtin").lsp_implementations()
-  end,
-  desc "TELESCOPE: List implementations"
-)
-map(
-  "n",
-  "<leader>fd",
-  function()
-    require("telescope.builtin").lsp_definitions()
-  end,
-  desc "TELESCOPE: List definition"
-)
-map(
-  "n",
-  "<leader>fq",
-  function()
-    require("telescope.builtin").quickfix()
-  end,
-  desc "TELESCOPE: List quickfixes"
-)
+map("n", "<leader>fs", function()
+  require("telescope.builtin").lsp_document_symbols()
+end, desc("TELESCOPE: Find document symbols"))
+map("n", "<leader>fS", function()
+  require("telescope.builtin").lsp_workspace_symbols()
+end, desc("TELESCOPE: Find workspace symbols"))
+map("n", "<leader>fi", function()
+  require("telescope.builtin").lsp_implementations()
+end, desc("TELESCOPE: List implementations"))
+map("n", "<leader>fd", function()
+  require("telescope.builtin").lsp_definitions()
+end, desc("TELESCOPE: List definition"))
+map("n", "<leader>fq", function()
+  require("telescope.builtin").quickfix()
+end, desc("TELESCOPE: List quickfixes"))
 map("n", "<leader>fz", "") -- remap from fz to fj
-map("n", "<leader>fj", "<cmd> Telescope current_buffer_fuzzy_find <CR>", desc "TELESCOPE: Find in current buffer")
+map("n", "<leader>fj", "<cmd> Telescope current_buffer_fuzzy_find <CR>", desc("TELESCOPE: Find in current buffer"))
 
 map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "TELESCOPE: live grep" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "TELESCOPE: find buffers" })
