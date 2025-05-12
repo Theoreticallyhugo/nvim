@@ -62,6 +62,15 @@ local tree = {
     },
     special_files = {}
   },
+  on_attach = function (bufnr)
+    local api = require "nvim-tree.api"
+    local function opts(desc)
+      return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
+    api.config.mappings.default_on_attach(bufnr)
+    vim.keymap.set('n', '_', api.tree.change_root_to_node, opts('CD'))
+    vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+  end,
 }
 
 -- Make :bd and :q behave as usual when tree is visible
@@ -101,5 +110,6 @@ vim.api.nvim_create_autocmd({'BufEnter', 'QuitPre'}, {
     end
   end
 })
+
 
 return tree
