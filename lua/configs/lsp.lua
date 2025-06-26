@@ -55,14 +55,10 @@ end
 -- Configure each language
 
 local servers = {
-  "pyright",
+  "pylsp",
   "lua_ls",
-  "html",
   "clangd",
   "texlab",
-  "dockerls",
-  "jsonls",
-  "yamlls",
   "ltex",
 }
 
@@ -76,14 +72,6 @@ for _, lsp in ipairs(servers) do
 end
 
 -- How to add LSP for a specific language?
-
--- bash-language-server
-lspconfig.bashls.setup {
-  on_attach = on_attach,
-  -- on_init = on_init,
-  -- capabilities = capabilities,
-  filetypes = { "sh", "bash", "zsh" },
-}
 
 -- FIXME:
 -- grammarly but foss is ltex
