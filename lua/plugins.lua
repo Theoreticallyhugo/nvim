@@ -76,10 +76,6 @@ return {
   },
   --- XXX: git
   {
-    "kdheepak/lazygit.nvim",
-    cmd = { "LazyGit" },
-  },
-  {
     "lewis6991/gitsigns.nvim",
     opts = function()
       return require("configs.gitsigns")

@@ -55,9 +55,6 @@ map({ "n", "v" }, "<leader>fm", function()
   })
 end, desc("FORMAT: Format file or range (in visual mode)"))
 
---- LazyGit
-map("n", "<leader>gg", "<cmd> LazyGit <CR>", desc("LAZYGIT: Open LazyGit"))
-
 -- undotree
 -- the plugin isnt loaded until invoced by the mapping
 map("n", "<leader>ut", "<cmd>lua require('undotree').toggle()<cr>", desc("UNDOTREE: load and then open undotree"))
