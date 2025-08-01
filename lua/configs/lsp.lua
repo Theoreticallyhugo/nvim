@@ -71,7 +71,7 @@ for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
     -- on_init = on_init,
-    -- capabilities = capabilities,
+    -- capabilities = lspcapabilities,
   }
 end
 
@@ -84,6 +84,14 @@ lspconfig.bashls.setup {
   -- capabilities = capabilities,
   filetypes = { "sh", "bash", "zsh" },
 }
+
+-- ruff uses an LSP proxy, therefore it needs to be enabled as if it
+-- were a LSP. In practice, ruff only provides linter-like diagnostics
+-- and some code actions, and is not a full LSP yet.
+lspconfig.ruff.setup({
+  -- disable ruff as hover provider to avoid conflicts with pyright
+  on_attach = function(client) client.server_capabilities.hoverProvider = false end,
+})
 
 -- FIXME:
 -- grammarly but foss is ltex

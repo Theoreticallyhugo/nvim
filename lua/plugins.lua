@@ -13,6 +13,8 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    main = "nvim-treesitter.configs",
     opts = require("configs.treesitter"),
   },
   "williamboman/mason.nvim",
@@ -93,7 +95,7 @@ return {
     end,
     lazy = false,
   },
-  -- XXX: autocompletion
+  --- XXX: autocompletion
   {
     -- Vscode-like pictograms
     "onsails/lspkind.nvim",
@@ -118,8 +120,8 @@ return {
     "L3MON4D3/LuaSnip",
     version = "v2.*",
   },
-  -- autopairing of (){}[] etc
   {
+    -- autopairing of (){}[] etc
     "windwp/nvim-autopairs",
     opts = {
       fast_wrap = {},
@@ -133,7 +135,32 @@ return {
       require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
-  -- help
+  {
+    -- Docstring creation
+    -- * quickly create docstrings via `<leader>a`
+    "danymat/neogen",
+    opts = true,
+    keys = {
+      {
+        "<leader>a",
+        function()
+          require("neogen").generate()
+        end,
+        desc = "Add Docstring",
+      },
+    },
+    config = function()
+      require("configs.neogen")
+    end,
+  },
+  {
+    -- f-strings
+    -- * auto-convert strings to f-strings when typing `{}` in a string
+    -- * also auto-converts f-strings back to regular strings when removing `{}`
+    "chrisgrieser/nvim-puppeteer",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+  },
+  --- XXX: help
   --
   {
     "folke/which-key.nvim",
@@ -144,7 +171,7 @@ return {
       require("which-key").setup()
     end,
   },
-  -- XXX: eyecandy
+  --- XXX: eyecandy
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -184,7 +211,7 @@ return {
     lazy = false, -- As https://github.com/nvimdev/dashboard-nvim/pull/450, dashboard-nvim shouldn't be lazy-loaded to properly handle stdin.
     opts = require("configs.dashboard"),
   },
-  -- XXX: debugger
+  --- XXX: debugger
   {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
@@ -216,7 +243,7 @@ return {
       require("dap-python").setup(path)
     end,
   },
-  -- XXX: UNDO
+  --- XXX: UNDO
   {
     "jiaoshijie/undotree",
     dependencies = "nvim-lua/plenary.nvim",

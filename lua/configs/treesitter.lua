@@ -3,6 +3,7 @@ local M = {
     "vim",
     "vimdoc",
     "python",
+    "rst",
     "lua",
     "cpp",
     "rust",
@@ -23,6 +24,7 @@ local M = {
     "json",
     "latex",
     "make",
+    "markdown",
     "markdown_inline",
     "regex",
     "tsv",
@@ -32,6 +34,7 @@ local M = {
   indent = {
     enable = true,
   },
+  highlight = { enable = true },
 }
 
 return M

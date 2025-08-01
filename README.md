@@ -61,7 +61,14 @@ lazygit is an external program that brings a tui for git to not only the command
 ### theming
 this repo is built around using catppuccin.
 
+## future ideas
+repl via [vim-slime](https://github.com/jpalardy/vim-slime) or iron.nvim
+
 ## FAQ:
 
 Q: is it any good?  
 A: yes
+
+## thanks to
+- [github nvim-kickstart-python](https://github.com/chrisgrieser/nvim-kickstart-python/tree/main)
+- [reddit nvim-kickstart-python](https://www.reddit.com/r/neovim/comments/16p7um2/introducing_nvimkickstartpython_a_starter_config/)

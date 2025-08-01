@@ -1,10 +1,10 @@
 -- set leader to space
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 vim.schedule(function()
-    require "mappings.init"
+  require("mappings.init")
 end)
-require('options')        
+require("options")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -19,6 +19,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({import = "plugins"})
+require("lazy").setup({ import = "plugins" })
 
 require("configs.lsp")
