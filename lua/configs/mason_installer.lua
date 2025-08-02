@@ -40,6 +40,9 @@ require('mason-tool-installer').setup {
 
     -- docker
     "dockerfile-language-server",
+
+    -- c, cpp
+    "clangd",
   },
 
   -- if set to true this will check each tool for updates. If updates
