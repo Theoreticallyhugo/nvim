@@ -15,46 +15,11 @@ require('mason-lspconfig').setup()
 -- How to use setup({}): https://github.com/neovim/nvim-lspconfig/wiki/Understanding-setup-%7B%7D
 --     - the settings table is sent to the LSP
 --     - on_attach: a lua callback function to run after LSP attaches to a given buffer
-local lspconfig = require('lspconfig')
 
 -- Customized on_attach function
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<space>j', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wl', function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, bufopts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set("n", "<space>f", function()
-        vim.lsp.buf.format({ async = true })
-    end, bufopts)
-end
-
--- Configure each language
-
-local servers = {
+vim.lsp.enable({
   "pyright",
   "lua_ls",
   "html",
@@ -64,47 +29,40 @@ local servers = {
   "jsonls",
   "yamlls",
   "ltex",
-}
-
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    -- on_init = on_init,
-    -- capabilities = lspcapabilities,
-  }
-end
+  "bashls",
+  "ruff",
+})
 
 -- How to add LSP for a specific language?
 
--- bash-language-server
-lspconfig.bashls.setup {
-  on_attach = on_attach,
-  -- on_init = on_init,
-  -- capabilities = capabilities,
-  filetypes = { "sh", "bash", "zsh" },
-}
-
--- ruff uses an LSP proxy, therefore it needs to be enabled as if it
--- were a LSP. In practice, ruff only provides linter-like diagnostics
--- and some code actions, and is not a full LSP yet.
-lspconfig.ruff.setup({
-  -- disable ruff as hover provider to avoid conflicts with pyright
-  on_attach = function(client) client.server_capabilities.hoverProvider = false end,
-})
-
--- FIXME:
--- grammarly but foss is ltex
-lspconfig.ltex.setup {
-  on_attach = on_attach,
-  -- on_init = on_init,
-  -- capabilities = capabilities,
-  -- filetypes = { "tex", "plaintex", "txt", "markdown" },
-  settings = {
-    ltex = {
-  	  language = "auto",
-  	  -- language = "en-GB",
-  	  -- language = "de-DE",
-  	},
-  },
-}
+-- -- bash-language-server
+-- lspconfig.bashls.setup {
+--   on_attach = on_attach,
+--   -- on_init = on_init,
+--   -- capabilities = capabilities,
+--   filetypes = { "sh", "bash", "zsh" },
+-- }
+--
+-- -- ruff uses an LSP proxy, therefore it needs to be enabled as if it
+-- -- were a LSP. In practice, ruff only provides linter-like diagnostics
+-- -- and some code actions, and is not a full LSP yet.
+-- lspconfig.ruff.setup({
+--   -- disable ruff as hover provider to avoid conflicts with pyright
+--   on_attach = function(client) client.server_capabilities.hoverProvider = false end,
+-- })
+--
+-- -- FIXME:
+-- -- grammarly but foss is ltex
+-- lspconfig.ltex.setup {
+--   on_attach = on_attach,
+--   -- on_init = on_init,
+--   -- capabilities = capabilities,
+--   -- filetypes = { "tex", "plaintex", "txt", "markdown" },
+--   settings = {
+--     ltex = {
+--   	  language = "auto",
+--   	  -- language = "en-GB",
+--   	  -- language = "de-DE",
+--   	},
+--   },
+-- }
