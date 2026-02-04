@@ -14,7 +14,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    main = "nvim-treesitter.configs",
+    -- main = "nvim-treesitter.configs",
     opts = require("configs.treesitter"),
   },
   "williamboman/mason.nvim",
