@@ -1,5 +1,6 @@
-require("mappings.misc")
 require("mappings.bufferline")
-require("mappings.telescope")
 require("mappings.dap")
+require("mappings.lsp")
+require("mappings.misc")
+require("mappings.telescope")
 require("mappings.todo-comments")

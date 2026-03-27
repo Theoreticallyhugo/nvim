@@ -6,7 +6,7 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Enable completion triggered by <c-x><c-o>
-vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+-- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 -- See `:help vim.lsp.*` for documentation on any of the below functions
 local bufopts = { noremap = true, silent = true, buffer = bufnr }
