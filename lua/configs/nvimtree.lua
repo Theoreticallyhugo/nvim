@@ -2,6 +2,11 @@ local tree = {
   filters = {
     dotfiles = false,  -- meaning do not filter dotfiles
   },
+  filesystem_watchers = {
+    ignore_dirs = {
+      ".mypy_cache"
+    },
+  },
   view = {
     adaptive_size = false,
     side = "left",
