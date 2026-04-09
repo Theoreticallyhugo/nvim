@@ -28,7 +28,7 @@ vim.lsp.enable({
   "dockerls",
   "jsonls",
   "yamlls",
-  "ltex",
+  "ltex_plus",
   "bashls",
   "ruff",
 })

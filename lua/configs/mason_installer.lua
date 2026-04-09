@@ -36,7 +36,7 @@ require('mason-tool-installer').setup {
 
     -- latex
     "texlab",
-    "ltex-ls",
+    "ltex-ls-plus", -- this also does markdown and lots of other things
 
     -- docker
     "dockerfile-language-server",
