@@ -37,6 +37,8 @@ vim.opt.undodir = undodir
 vim.opt.undolevels = 1000
 
 vim.opt.foldlevelstart = 99
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 --------------------------------------------------------------------------------
 -- SETUP BASIC PYTHON-RELATED OPTIONS
@@ -56,9 +58,9 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.tabstop = 4
     vim.opt_local.softtabstop = 4
 
-    -- folds based on indentation https://neovim.io/doc/user/fold.html#fold-indent
     -- if you are a heavy user of folds, consider using `nvim-ufo`
-    vim.opt_local.foldmethod = "indent"
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
     local iabbrev = function(lhs, rhs)
       vim.keymap.set("ia", lhs, rhs, { buffer = true })
